@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saif Al-Khatatbeh | Full-Stack .NET Developer</title>
+    <meta name="description"
+        content="Full-stack developer in Amman specializing in C#, ASP.NET Core and SQL Server. Case studies, skills and CV.">
+    <meta name="author" content="Saif Eddin Amer Al-Khatatbeh">
+    <meta name="theme-color" content="#06080f">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="saif.js" defer></script>
+</head>
+
+<body>
+    <svg class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m3 7 9 6 9-6" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M12 15V3" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 24 24">
+            <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+        </symbol>
+        <symbol id="i-ext" viewBox="0 0 24 24">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+        </symbol>
+    </svg>
+
+    <!-- Custom cursor -->
+    <div class="cursor" aria-hidden="true">
+        <div class="cursor-ring"></div>
+        <div class="cursor-dot"></div>
+    </div>
+
+    <!-- Noise texture overlay -->
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- Scroll progress -->
+    <div class="progress-bar" id="progress" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <span class="loader-name">SK</span>
+            <div class="loader-bar"><span class="loader-fill"></span></div>
+            <span class="loader-count" id="loader-count">0</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="nav" id="nav">
+        <a class="nav-logo" href="#hero" data-magnetic aria-label="Back to top">
+            <span class="nav-logo-text">SK</span>
+            <span class="nav-logo-dot"></span>
+        </a>
+        <button class="nav-burger" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu"
+            aria-label="Menu">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
+        <nav class="menu" id="menu" inert>
+            <div class="menu-bg"></div>
+            <ul class="menu-list">
+                <li><a href="#hero"><span class="menu-num">01</span><span class="menu-text">Home</span></a></li>
+                <li><a href="#about"><span class="menu-num">02</span><span class="menu-text">About</span></a></li>
+                <li><a href="#projects"><span class="menu-num">03</span><span class="menu-text">Projects</span></a></li>
+                <li><a href="#skills"><span class="menu-num">04</span><span class="menu-text">Skills</span></a></li>
+                <li><a href="#experience"><span class="menu-num">05</span><span class="menu-text">Experience</span></a>
+                </li>
+                <li><a href="#background"><span class="menu-num">06</span><span class="menu-text">Background</span></a>
+                </li>
+                <li><a href="#contact"><span class="menu-num">07</span><span class="menu-text">Contact</span></a></li>
+            </ul>
+        </nav>
+        <div class="nav-links">
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#experience">Experience</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Chapter navigation -->
+    <nav class="chapters" aria-label="Chapters"></nav>
+
+    <main id="main">
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="hero" id="hero" data-chapter="Home" data-scene="violet">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-orb hero-orb--1"></div>
+                <div class="hero-orb hero-orb--2"></div>
+                <div class="hero-orb hero-orb--3"></div>
+                <div class="hero-grid-lines"></div>
+            </div>
+
+            <div class="hero-wrap" data-depth-parent>
+                <div class="hero-content">
+                    <div class="hero-tag" data-reveal>
+                        <span class="tag-dot"></span>
+                        <span class="tag-text">Available for work</span>
+                    </div>
+                    <h1 class="hero-title split" data-depth="0.15">Full-Stack</h1>
+                    <h1 class="hero-title hero-title--stroke split" data-depth="0.08">.NET Developer</h1>
+                    <p class="hero-sub" data-reveal data-depth="0.04">I build web applications end to end — SQL Server
+                        schemas, ASP.NET Core APIs
+                        and responsive JavaScript interfaces, structured with clean architecture so they stay easy to
+                        maintain.</p>
+
+                    <div class="hero-chips" data-reveal data-depth="0.12">
+                        <span class="chip chip--float" data-layer="api" style="--d:0">C#</span>
+                        <span class="chip chip--float" data-layer="api" style="--d:1">.NET Core</span>
+                        <span class="chip chip--float" data-layer="data" style="--d:2">SQL Server</span>
+                        <span class="chip chip--float" data-layer="ui" style="--d:3">JavaScript</span>
+                    </div>
+
+                    <div class="hero-actions" data-reveal>
+                        <a class="btn btn--primary" href="#projects" data-magnetic data-cursor="View Work">
+                            <span class="btn-text">View projects</span>
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-arrow" />
+                            </svg>
+                        </a>
+                        <a class="btn btn--ghost"
+                            href="https://drive.google.com/file/d/1_UbQV3G1fJTuor5WRgMAAh66O0148Dwv/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer" data-magnetic>
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-download" />
+                            </svg>
+                            <span class="btn-text">Download CV</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-meta" data-reveal>
+                        <a class="meta-link" href="https://github.com/saifkhatatbeh17-droid" target="_blank"
+                            rel="noopener noreferrer" data-magnetic aria-label="GitHub">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-github" />
+                            </svg>
+                        </a>
+                        <a class="meta-link" href="https://www.linkedin.com/in/saif-amer-khatatbeh-1a6ab1317/"
+                            target="_blank" rel="noopener noreferrer" data-magnetic aria-label="LinkedIn">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-linkedin" />
+                            </svg>
+                        </a>
+                        <span class="meta-divider"></span>
+                        <span class="meta-location">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-pin" />
+                            </svg>
+                            Amman, Jordan
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-depth="0.2" data-reveal>
+                    <div class="portrait" data-cursor="Saif">
+                        <div class="portrait-mask">
+                            <img src="photo/saifkhatatbeh.jpg" alt="Portrait of Saif Al-Khatatbeh" width="400"
+                                height="400" fetchpriority="high" decoding="async">
+                        </div>
+                        <div class="portrait-glow"></div>
+                    </div>
+                    <pre class="code-card" data-depth="0.35" aria-hidden="true"><code><span class="tok-k">public async</span> <span class="tok-t">Task</span>&lt;<span class="tok-t">IActionResult</span>&gt; <span class="tok-f">Summary</span>()
+{
+    <span class="tok-k">var</span> data = <span class="tok-k">await</span> _repo.<span class="tok-f">GetAnalyticsAsync</span>();
+    <span class="tok-k">return</span> <span class="tok-f">Ok</span>(data);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="scroll-hint" data-reveal aria-hidden="true">
+                <div class="scroll-hint-line"></div>
+                <span class="scroll-hint-text">Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- ═══════════════ ABOUT ═══════════════ -->
+        <section class="about" id="about" data-chapter="About" data-scene="cyan">
+            <div class="about-inner">
+                <div class="section-label" data-scroll>
+                    <span class="label-line"></span>
+                    <span class="label-text">02 / About</span>
+                </div>
+
+                <div class="about-hero" data-scroll>
+                    <h2 class="about-title" data-words>I design the whole path a request takes: the SQL Server schema,
+                        the
+                        ASP.NET Core API and the JavaScript interface on top.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text" data-scroll>
+                        <p>I am a <strong>full-stack web developer</strong> focused on the <strong>Microsoft .NET
+                                ecosystem (C#, ASP.NET Core, SQL Server)</strong> and modern front-end technologies.
+                            After an intensive software development fellowship at <strong>Coding Academy by
+                                Orange</strong>, I build web applications that are scalable, secure and easy to
+                            maintain.</p>
+                        <p>I pair disciplined engineering with <strong>clean architecture</strong>: normalized
+                            relational databases, robust <strong>RESTful Web APIs</strong> and responsive, accessible
+                            interfaces. I care about readable code, careful logic and reliable systems.</p>
+                    </div>
+
+                    <figure class="about-image" data-scroll data-cursor="About Me">
+                        <div class="img-reveal">
+                            <img src="photo/3d_dev.jpg" alt="3D .NET developer concept" loading="lazy" decoding="async">
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="build-pillars">
+                    <div class="pillar" data-scroll data-layer="api">
+                        <div class="pillar-num">01</div>
+                        <h3 class="pillar-title">APIs</h3>
+                        <p class="pillar-desc">RESTful ASP.NET Core Web APIs with the repository pattern, Identity and
+                            JWT authentication.</p>
+                    </div>
+                    <div class="pillar" data-scroll data-layer="data">
+                        <div class="pillar-num">02</div>
+                        <h3 class="pillar-title">Databases</h3>
+                        <p class="pillar-desc">Normalized SQL Server schemas, EF Core migrations and indexed queries.
+                        </p>
+                    </div>
+                    <div class="pillar" data-scroll data-layer="ui">
+                        <div class="pillar-num">03</div>
+                        <h3 class="pillar-title">Interfaces</h3>
+                        <p class="pillar-desc">Responsive, accessible front ends in vanilla JavaScript that call the
+                            API with fetch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ MARQUEE ═══════════════ -->
+        <div class="marquee-section" aria-hidden="true">
+            <div class="marquee-row" data-dir="left">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <span class="marquee-item">C#</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">ASP.NET Core</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">SQL Server</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">JavaScript</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">Entity Framework</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">Clean Architecture</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row" data-dir="right">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <span class="marquee-item">RESTful APIs</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">LINQ</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">T-SQL</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">HTML5 / CSS3</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">SOLID</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                        <span class="marquee-item">Git & GitHub</span>
+                        <span class="marquee-item marquee-item--dot">◆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════ PROJECTS (Horizontal Scroll) ═══════════════ -->
+        <section class="work" id="projects" data-chapter="Projects" data-scene="orange">
+            <div class="section-label section-label--sticky" data-scroll>
+                <span class="label-line"></span>
+                <span class="label-text">03 / Projects</span>
+            </div>
+
+            <div class="work-track">
+                <!-- Project 1 -->
+                <article class="panel" data-scroll>
+                    <div class="panel-glass">
+                        <header class="panel-head">
+                            <span class="panel-num">01</span>
+                            <h3 class="panel-title">Feedback & Sentiment Platform</h3>
+                            <p class="panel-kind">Full-stack web application on .NET Core and SQL Server</p>
+                        </header>
+
+                        <div data-tabs>
+                            <div class="tablist" role="tablist" aria-label="Feedback platform case study">
+                                <span class="tab-indicator" aria-hidden="true"></span>
+                                <button class="tab" role="tab" type="button" id="fb-tab-problem"
+                                    aria-controls="fb-panel-problem" aria-selected="true">Problem</button>
+                                <button class="tab" role="tab" type="button" id="fb-tab-arch"
+                                    aria-controls="fb-panel-arch" aria-selected="false"
+                                    tabindex="-1">Architecture</button>
+                                <button class="tab" role="tab" type="button" id="fb-tab-ui" aria-controls="fb-panel-ui"
+                                    aria-selected="false" tabindex="-1">Interface</button>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="fb-panel-problem" aria-labelledby="fb-tab-problem"
+                                tabindex="0">
+                                <p class="panel-text">Feedback arrives from several channels, which makes it slow to
+                                    see
+                                    what users really think. This platform collects reviews in one place and reports on
+                                    them as they come in.</p>
+                                <ul class="points">
+                                    <li>Decoupled ASP.NET Core Web API with the repository pattern, so business logic
+                                        stays apart from data access.</li>
+                                    <li>Normalized SQL Server schema with indexed queries for fast analytics.</li>
+                                    <li>Asynchronous admin dashboard in vanilla JavaScript and CSS Grid.</li>
+                                </ul>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="fb-panel-arch" aria-labelledby="fb-tab-arch"
+                                tabindex="0">
+                                <p class="panel-hint">Hover or tap the diagram to follow a request through the layers.
+                                </p>
+                                <ol class="arch">
+                                    <li class="arch-node" data-layer="ui"><span class="arch-title">Dashboard</span><span
+                                            class="arch-text">Vanilla JavaScript, CSS Grid and the Fetch
+                                            API</span></li>
+                                    <li class="arch-node" data-layer="api"><span class="arch-title">Web
+                                            API</span><span class="arch-text">ASP.NET Core controllers returning
+                                            JSON</span></li>
+                                    <li class="arch-node" data-layer="api"><span
+                                            class="arch-title">Repositories</span><span class="arch-text">Repository
+                                            pattern separating logic from data access</span></li>
+                                    <li class="arch-node" data-layer="data"><span class="arch-title">SQL
+                                            Server</span><span class="arch-text">Normalized schema with indexes for
+                                            analytics queries</span></li>
+                                </ol>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="fb-panel-ui" aria-labelledby="fb-tab-ui"
+                                tabindex="0">
+                                <p class="panel-hint">Interactive preview. It runs in your browser on sample data; the
+                                    real application talks to the .NET API.</p>
+                                <div class="demo demo-split" data-demo="feedback">
+                                    <form class="demo-form" novalidate>
+                                        <fieldset class="rating">
+                                            <legend>Rate your experience</legend>
+                                            <div class="rating-stars">
+                                                <input type="radio" name="rating" id="rate-5" value="5"><label
+                                                    for="rate-5"><span class="sr-only">5 stars</span></label>
+                                                <input type="radio" name="rating" id="rate-4" value="4"><label
+                                                    for="rate-4"><span class="sr-only">4 stars</span></label>
+                                                <input type="radio" name="rating" id="rate-3" value="3"><label
+                                                    for="rate-3"><span class="sr-only">3 stars</span></label>
+                                                <input type="radio" name="rating" id="rate-2" value="2"><label
+                                                    for="rate-2"><span class="sr-only">2 stars</span></label>
+                                                <input type="radio" name="rating" id="rate-1" value="1"><label
+                                                    for="rate-1"><span class="sr-only">1 star</span></label>
+                                            </div>
+                                        </fieldset>
+                                        <label class="field-label" for="fb-comment">Comment (optional)</label>
+                                        <textarea class="field" id="fb-comment" name="comment" rows="3" maxlength="120"
+                                            placeholder="What worked, what did not?"></textarea>
+                                        <button class="btn btn--primary btn--sm" type="submit">Send feedback</button>
+                                        <p class="status" data-status role="status"></p>
+                                    </form>
+                                    <div class="demo-results">
+                                        <p class="score"><span class="score-value" data-avg>0.0</span><span
+                                                class="score-meta" data-total></span></p>
+                                        <ul class="bars" aria-label="Rating distribution">
+                                            <li class="bar-row"><span class="bar-label">5 ★</span><span
+                                                    class="bar-track"><span class="bar-fill"
+                                                        data-bar="5"></span></span><span class="bar-count"
+                                                    data-count="5"></span></li>
+                                            <li class="bar-row"><span class="bar-label">4 ★</span><span
+                                                    class="bar-track"><span class="bar-fill"
+                                                        data-bar="4"></span></span><span class="bar-count"
+                                                    data-count="4"></span></li>
+                                            <li class="bar-row"><span class="bar-label">3 ★</span><span
+                                                    class="bar-track"><span class="bar-fill"
+                                                        data-bar="3"></span></span><span class="bar-count"
+                                                    data-count="3"></span></li>
+                                            <li class="bar-row"><span class="bar-label">2 ★</span><span
+                                                    class="bar-track"><span class="bar-fill"
+                                                        data-bar="2"></span></span><span class="bar-count"
+                                                    data-count="2"></span></li>
+                                            <li class="bar-row"><span class="bar-label">1 ★</span><span
+                                                    class="bar-track"><span class="bar-fill"
+                                                        data-bar="1"></span></span><span class="bar-count"
+                                                    data-count="1"></span></li>
+                                        </ul>
+                                        <ul class="sentiment" aria-label="Sentiment by rating">
+                                            <li class="sent sent-pos"><span>Positive</span><strong
+                                                    data-sent="pos"></strong></li>
+                                            <li class="sent sent-neu"><span>Neutral</span><strong
+                                                    data-sent="neu"></strong></li>
+                                            <li class="sent sent-neg"><span>Negative</span><strong
+                                                    data-sent="neg"></strong></li>
+                                        </ul>
+                                        <ul class="recent" aria-label="Latest feedback" data-recent></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="panel-foot">
+                            <div class="chips">
+                                <span class="chip" data-layer="api">C#</span>
+                                <span class="chip" data-layer="api">ASP.NET Core Web API</span>
+                                <span class="chip" data-layer="data">EF Core</span>
+                                <span class="chip" data-layer="data">SQL Server</span>
+                                <span class="chip" data-layer="ui">JavaScript</span>
+                            </div>
+                            <a class="btn btn--sm" href="https://github.com/saifkhatatbeh17-droid" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-github" />
+                                </svg>
+                                View code
+                            </a>
+                        </footer>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="panel" data-scroll>
+                    <div class="panel-glass">
+                        <header class="panel-head">
+                            <span class="panel-num">02</span>
+                            <h3 class="panel-title">TaskFlow — Collaborative Task Management</h3>
+                            <p class="panel-kind">Full-stack productivity platform on .NET Core</p>
+                        </header>
+
+                        <div data-tabs>
+                            <div class="tablist" role="tablist" aria-label="TaskFlow case study">
+                                <span class="tab-indicator" aria-hidden="true"></span>
+                                <button class="tab" role="tab" type="button" id="tf-tab-problem"
+                                    aria-controls="tf-panel-problem" aria-selected="true">Problem</button>
+                                <button class="tab" role="tab" type="button" id="tf-tab-arch"
+                                    aria-controls="tf-panel-arch" aria-selected="false"
+                                    tabindex="-1">Architecture</button>
+                                <button class="tab" role="tab" type="button" id="tf-tab-ui" aria-controls="tf-panel-ui"
+                                    aria-selected="false" tabindex="-1">Interface</button>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="tf-panel-problem" aria-labelledby="tf-tab-problem"
+                                tabindex="0">
+                                <p class="panel-text">Teams lose time when assignments, sprint progress and permissions
+                                    live in different places. TaskFlow keeps them in one workspace and controls who can
+                                    change what.</p>
+                                <ul class="points">
+                                    <li>Secure authentication and role-based access control with ASP.NET Core Identity.
+                                    </li>
+                                    <li>Asynchronous LINQ queries and Entity Framework Core for high-throughput database
+                                        work.</li>
+                                    <li>Responsive Kanban board with real-time UI updates through the JavaScript Fetch
+                                        API.</li>
+                                </ul>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="tf-panel-arch" aria-labelledby="tf-tab-arch"
+                                tabindex="0">
+                                <p class="panel-hint">Hover or tap the diagram to follow a request through the layers.
+                                </p>
+                                <ol class="arch">
+                                    <li class="arch-node" data-layer="ui"><span class="arch-title">Kanban
+                                            board</span><span class="arch-text">Responsive UI updated through the Fetch
+                                            API</span></li>
+                                    <li class="arch-node" data-layer="api"><span class="arch-title">Web
+                                            API</span><span class="arch-text">ASP.NET Core with Identity and
+                                            role-based access control</span></li>
+                                    <li class="arch-node" data-layer="data"><span class="arch-title">Data
+                                            access</span><span class="arch-text">Entity Framework Core with
+                                            asynchronous LINQ queries</span></li>
+                                    <li class="arch-node" data-layer="data"><span class="arch-title">SQL
+                                            Server</span><span class="arch-text">Relational storage queried with
+                                            T-SQL</span></li>
+                                </ol>
+                            </div>
+
+                            <div class="tabpanel" role="tabpanel" id="tf-panel-ui" aria-labelledby="tf-tab-ui"
+                                tabindex="0">
+                                <p class="panel-hint">Interactive preview. Switch roles to see role-based access in
+                                    action; tasks reset when you reload.</p>
+                                <div class="demo" data-demo="tasks">
+                                    <div class="demo-toolbar">
+                                        <div class="segmented" role="group" aria-label="View as">
+                                            <button class="segment is-active" type="button" data-role="admin"
+                                                aria-pressed="true">Admin</button>
+                                            <button class="segment" type="button" data-role="member"
+                                                aria-pressed="false">Member</button>
+                                        </div>
+                                        <form class="task-form" novalidate>
+                                            <label class="sr-only" for="task-title">New task</label>
+                                            <input class="field" id="task-title" type="text" maxlength="60"
+                                                autocomplete="off" placeholder="Add a task">
+                                            <button class="btn btn--primary btn--sm" type="submit">Add task</button>
+                                        </form>
+                                    </div>
+                                    <p class="status" data-note role="status"></p>
+                                    <div class="board">
+                                        <section class="column" aria-labelledby="col-todo">
+                                            <h4 class="column-title" id="col-todo">To do <span class="count"
+                                                    data-count="todo">0</span></h4>
+                                            <ul class="task-list" data-list="todo"></ul>
+                                        </section>
+                                        <section class="column" aria-labelledby="col-doing">
+                                            <h4 class="column-title" id="col-doing">In progress <span class="count"
+                                                    data-count="doing">0</span></h4>
+                                            <ul class="task-list" data-list="doing"></ul>
+                                        </section>
+                                        <section class="column" aria-labelledby="col-done">
+                                            <h4 class="column-title" id="col-done">Done <span class="count"
+                                                    data-count="done">0</span></h4>
+                                            <ul class="task-list" data-list="done"></ul>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="panel-foot">
+                            <div class="chips">
+                                <span class="chip" data-layer="api">C#</span>
+                                <span class="chip" data-layer="api">ASP.NET Core Identity</span>
+                                <span class="chip" data-layer="data">Entity Framework Core</span>
+                                <span class="chip" data-layer="data">T-SQL</span>
+                                <span class="chip" data-layer="ui">JavaScript (ES6+)</span>
+                            </div>
+                            <a class="btn btn--sm" href="https://github.com/saifkhatatbeh17-droid" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-github" />
+                                </svg>
+                                View code
+                            </a>
+                        </footer>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="panel panel--compact" data-scroll>
+                    <div class="panel-glass">
+                        <header class="panel-head">
+                            <span class="panel-num">03</span>
+                            <h3 class="panel-title">Developer Portfolio</h3>
+                            <p class="panel-kind">Responsive web design and front-end architecture</p>
+                        </header>
+                        <p class="panel-text">A lightweight, mobile-first portfolio built from scratch with no
+                            framework,
+                            focused on smooth navigation, accessible design and performance-conscious motion.</p>
+                        <footer class="panel-foot">
+                            <div class="chips">
+                                <span class="chip" data-layer="ui">HTML5</span>
+                                <span class="chip" data-layer="ui">CSS3</span>
+                                <span class="chip" data-layer="ui">Vanilla JavaScript</span>
+                                <span class="chip" data-layer="ui">UI/UX</span>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════ SKILLS (Card Deck) ═══════════════ -->
+        <section class="skills" id="skills" data-chapter="Skills" data-scene="green">
+            <div class="skills-inner">
+                <div class="section-label" data-scroll>
+                    <span class="label-line"></span>
+                    <span class="label-text">04 / Technical Skills</span>
+                </div>
+
+                <h2 class="skills-title" data-scroll>Grouped by where they sit in the stack.</h2>
+
+                <div class="deck">
+                    <div class="dcard" data-scroll data-layer="api">
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">01</span>
+                                <h3 class="dcard-title">Backend Development</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">C#</span>
+                                <span class="chip">ASP.NET Core</span>
+                                <span class="chip">Web API / RESTful APIs</span>
+                                <span class="chip">Entity Framework Core</span>
+                                <span class="chip">LINQ</span>
+                                <span class="chip">JWT / Identity auth</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dcard" data-scroll data-layer="data">
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">02</span>
+                                <h3 class="dcard-title">Database & Persistence</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">Microsoft SQL Server</span>
+                                <span class="chip">T-SQL</span>
+                                <span class="chip">Schema design</span>
+                                <span class="chip">Relational normalization</span>
+                                <span class="chip">EF Core migrations</span>
+                                <span class="chip">Query optimization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dcard" data-scroll data-layer="ui">
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">03</span>
+                                <h3 class="dcard-title">Frontend & UI/UX</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">JavaScript (ES6+)</span>
+                                <span class="chip">Semantic HTML5</span>
+                                <span class="chip">CSS3, Flexbox and Grid</span>
+                                <span class="chip">Responsive design</span>
+                                <span class="chip">DOM manipulation</span>
+                                <span class="chip">Fetch API / AJAX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dcard" data-scroll>
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">04</span>
+                                <h3 class="dcard-title">Engineering Principles</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">Clean Architecture</span>
+                                <span class="chip">SOLID</span>
+                                <span class="chip">Agile / Scrum</span>
+                                <span class="chip">Object-oriented programming</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dcard" data-scroll>
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">05</span>
+                                <h3 class="dcard-title">Development Tools</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">Git and GitHub</span>
+                                <span class="chip">Postman</span>
+                                <span class="chip">Visual Studio</span>
+                                <span class="chip">VS Code</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dcard" data-scroll>
+                        <div class="dcard-glass">
+                            <div class="dcard-head">
+                                <span class="dcard-num">06</span>
+                                <h3 class="dcard-title">Soft Skills</h3>
+                            </div>
+                            <div class="chips">
+                                <span class="chip">Problem solving</span>
+                                <span class="chip">Team collaboration</span>
+                                <span class="chip">Effective communication</span>
+                                <span class="chip">Adaptability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+        <section class="experience" id="experience" data-chapter="Experience" data-scene="amber">
+            <div class="experience-inner">
+                <div class="section-label" data-scroll>
+                    <span class="label-line"></span>
+                    <span class="label-text">05 / Experience</span>
+                </div>
+
+                <div class="exp-grid">
+                    <div class="exp-card exp-card--main" data-scroll>
+                        <div class="exp-glass">
+                            <div class="exp-badge">Primary</div>
+                            <h3 class="exp-title">Full-Stack Web Development Trainee</h3>
+                            <p class="exp-org">Coding Academy by Orange</p>
+                            <ul class="points">
+                                <li>Completed an intensive full-stack engineering program focused on .NET Core and
+                                    modern web technologies.</li>
+                                <li>Delivered end-to-end web applications with C#, ASP.NET Core, EF Core and SQL Server.
+                                </li>
+                                <li>Applied Agile/Scrum methods, clean architecture principles and RESTful API design.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="exp-card" data-scroll>
+                        <div class="exp-glass">
+                            <h3 class="exp-title">Arabic Language Teacher</h3>
+                            <p class="exp-org">Ministry of Education, Jordan</p>
+                            <p class="exp-desc">Three years of leading classrooms built the communication, leadership
+                                and problem-solving skills I now bring to engineering teams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ BACKGROUND ═══════════════ -->
+        <section class="background" id="background" data-chapter="Background" data-scene="rose">
+            <div class="bg-inner">
+                <div class="section-label" data-scroll>
+                    <span class="label-line"></span>
+                    <span class="label-text">06 / Background</span>
+                </div>
+
+                <h2 class="bg-title" data-scroll>Training, education and people who can speak to my work.</h2>
+
+                <div class="bg-grid">
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">Intensive Training</h3>
+                        <ul class="points">
+                            <li>Full-Stack Web Development Program, Coding Academy by Orange</li>
+                            <li>Using Technology in Education, Edraak</li>
+                        </ul>
+                    </div>
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">BA in Arabic Language & Literature</h3>
+                        <p class="bg-card-sub">Al-Balqa Applied University</p>
+                        <p>GPA 3.33, ranked 3rd in the graduating class.</p>
+                    </div>
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">Higher Diploma in Teacher Preparation</h3>
+                        <p class="bg-card-sub">Yarmouk University & Queen Rania Teacher Academy</p>
+                        <p>Score 83.1 (Very Good).</p>
+                    </div>
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">General Secondary Certificate (Tawjihi)</h3>
+                        <p class="bg-card-sub">Scientific stream</p>
+                    </div>
+                </div>
+
+                <h3 class="bg-subtitle" data-scroll>References</h3>
+                <div class="bg-grid bg-grid--refs">
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">Mohammad Freijat</h3>
+                        <p>Director, Coding Academy by Orange</p>
+                        <a class="btn btn--sm" href="https://www.linkedin.com/in/mohammed-frehat-9222402b"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-linkedin" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                    <div class="bg-card" data-scroll>
+                        <h3 class="bg-card-title">Anfal Dherat</h3>
+                        <p>Coding Academy by Orange</p>
+                        <a class="btn btn--sm" href="https://www.linkedin.com/in/anfal-dherat/" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-linkedin" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <footer class="contact" id="contact" data-chapter="Contact" data-scene="violet">
+        <div class="contact-orbs" aria-hidden="true">
+            <div class="contact-orb contact-orb--1"></div>
+            <div class="contact-orb contact-orb--2"></div>
+        </div>
+        <div class="contact-inner">
+            <div class="section-label" data-scroll>
+                <span class="label-line"></span>
+                <span class="label-text">07 / Contact</span>
+            </div>
+
+            <h2 class="contact-title" data-scroll>Looking for a<br>full-stack .NET<br>developer?</h2>
+            <p class="contact-lead" data-scroll>Send me an email or take a look at my CV.</p>
+
+            <div class="contact-actions" data-scroll>
+                <a class="btn btn--primary btn--lg" href="mailto:saifkhatatbeh17@gmail.com" data-magnetic
+                    data-cursor="Say Hello">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="#i-mail" />
+                    </svg>
+                    <span class="btn-text">Email me</span>
+                </a>
+                <a class="btn btn--ghost btn--lg"
+                    href="https://drive.google.com/file/d/1_UbQV3G1fJTuor5WRgMAAh66O0148Dwv/view?usp=drive_link"
+                    target="_blank" rel="noopener noreferrer" data-magnetic>
+                    <svg class="icon" aria-hidden="true">
+                        <use href="#i-download" />
+                    </svg>
+                    <span class="btn-text">Download CV</span>
+                </a>
+            </div>
+
+            <ul class="contact-links" data-scroll>
+                <li><a href="tel:+962777194094">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-phone" />
+                        </svg>
+                        +962 777 194 094
+                    </a></li>
+                <li><a href="mailto:saifkhatatbeh17@gmail.com">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-mail" />
+                        </svg>
+                        saifkhatatbeh17@gmail.com
+                    </a></li>
+                <li><a href="https://github.com/saifkhatatbeh17-droid" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-github" />
+                        </svg>
+                        GitHub
+                    </a></li>
+                <li><a href="https://www.linkedin.com/in/saif-amer-khatatbeh-1a6ab1317/" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-linkedin" />
+                        </svg>
+                        LinkedIn
+                    </a></li>
+            </ul>
+
+            <div class="orange-badge" data-scroll>
+                <span class="orange-label">Graduate of</span>
+                <span class="orange-brand">orange</span>
+                <span class="orange-name">Coding Academy</span>
+            </div>
+
+            <p class="contact-copy">&copy; 2026 Saif Al-Khatatbeh. Amman, Jordan.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Open Source SplitType instead of domain-locked SplitText -->
+    <script src="https://unpkg.com/split-type"></script>
+    <!-- Custom JS -->
+    <script src="saif.js"></script>
+</body>
+
+</html>
